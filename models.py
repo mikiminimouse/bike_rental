@@ -11,8 +11,12 @@ class BikeModel(models.Model):
     brand = models.ForeignKey(BikeBrand, on_delete=models.PROTECT, related_name='models')
     model = models.CharField(max_length=255)
     transmission = models.CharField(max_length=255)
-    displacement = models.IntegerField()
-    specifications = models.TextField()
+    gears = models.IntegerField(null=True, blank=True)
+    displacement = models.FloatField()
+    fuel_system = models.CharField(max_length=255, default="carburettor")  # Значение по умолчанию
+    tank = models.FloatField(default=0)  # Значение по умолчанию
+    clearance = models.IntegerField()
+    description = models.TextField()
 
     def __str__(self):
         return f"{self.brand.name} {self.model}"

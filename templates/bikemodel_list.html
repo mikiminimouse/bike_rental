@@ -1,0 +1,18 @@
+                                                                <!DOCTYPE html>
+<html>
+<body>
+
+<h1>Bike Models</h1>
+  
+<ul>
+  {% for bikemodel in bikemodels %}
+    <li>
+      <a href="/bikemodel/{{ bikemodel.id }}">
+        {{ bikemodel.brand.name }} {{ bikemodel.model }}
+      </a>
+    </li>
+  {% endfor %}
+</ul>
+
+</body>
+</html>
